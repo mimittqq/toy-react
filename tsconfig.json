@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "experimentalDecorators": true,
+    "jsx": "preserve",
+    "target": "es2016",
+    "lib": [
+      "dom",
+      "es2016"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "alwaysStrict": false,
+    "moduleResolution": "node",
+    "removeComments": true,
+    "sourceMap": true,
+    "module": "commonjs",
+    "baseUrl": "./"
+  },
+  "files": [
+    "./index.tsx",
+  ],
+  "exclude": [
+    "build",
+    "node_modules"
+  ],
+}

@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ROOT = path.resolve('./')
+const webpack = require('webpack')
 
 module.exports =  {
   mode: 'development',
@@ -13,6 +14,9 @@ module.exports =  {
     path: path.join(ROOT, 'build'),
     publicPath: '/',
     filename: 'js/[name].js',
+  },
+  resolve: {
+    extensions: ['.webpack.js', '.ts', '.tsx', '.js'],
   },
   module: {
     rules: [
@@ -30,6 +34,11 @@ module.exports =  {
       filename: 'index.html',
       chunks: ['index'],
       template: path.join(ROOT, 'index.ejs'),
+    }),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery"
     })
   ]
 }
