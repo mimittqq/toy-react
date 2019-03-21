@@ -1,4 +1,4 @@
-export interface ReactDOMComponent {
+export interface ReactDOMComponentFacade {
   _currentElement:any;
   _rootNodeID:number;
   mountComponent:(rootID:number) => string;

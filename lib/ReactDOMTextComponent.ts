@@ -1,5 +1,5 @@
-import { ReactDOMComponent } from './../types/ReactDOMComponent.d';
-export class ReactDOMTextComponent implements ReactDOMComponent {
+import { ReactDOMComponentFacade } from './../types/ReactDOMComponent.d';
+export class ReactDOMTextComponent implements ReactDOMComponentFacade {
   _currentElement:string|number;
   _rootNodeID
   constructor(text:string|number) {
