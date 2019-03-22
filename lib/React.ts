@@ -1,6 +1,7 @@
 import { instantiateReactComponent } from "./instantiateReactComponent";
 import { ReactElement } from './ReactElement';
 import { ReactElementFacade } from "types/ReactElement";
+import { ReactClass } from './ReactClass';
 
 /**
  * 流程:
@@ -30,5 +31,19 @@ export const React = {
     
     props.children = children;
     return new ReactElement(type, key, props);
-  }
+  },
+  /**
+   * 创建一个 react 自定义组件类
+   */
+  createClass: (spec) => {
+    const Constructor = function(props) {
+      this.props = props;
+      this.state = this.getInitialState ? this.getInitialState() : null;
+    }
+    Constructor.prototype = new ReactClass();
+    Constructor.prototype.constructor = Constructor;
+
+    Object.assign(Constructor.prototype, spec);
+    return Constructor;
+  },
 }
